@@ -1,0 +1,10 @@
+.tab:hover {
+  background-color: rgba(0, 0, 0, 0.2); /* 背景色を暗くする */
+}
+
+.form-container {
+  max-width: 500px; /* フォームの最大幅を500pxに設定 */
+  margin-left: 12px; /* タブと同じ左マージン */
+  margin-right: auto; /* 右マージンを自動に設定して中央寄せ */
+  padding: 20px; /* フォームの内側のスペース（パディング） */
+}
