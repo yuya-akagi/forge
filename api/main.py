@@ -30,7 +30,7 @@ async def read_root():
 
 @app.get("/models",response_model=List[Model])
 async def get_models():
-return models
+    return models
 
 @app.post("/submit-form/")
 async def handle_form_submit(request: Request):
