@@ -50,4 +50,8 @@ async def handle_form_submit(request: Request):
             ["python", "../cui/main.py", model_name],
             capture_output=True,  # 出力をキャプチャする
     )
-    #return {"received_modelName": model_name, "script_output": result.stdout}
+    
+    return {
+        "received_modelName": model_name,
+        "script_output": result.stdout.decode('utf-8')
+    }

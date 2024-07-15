@@ -17,8 +17,12 @@ if [ ! -d "node_modules" ]; then
   npm install
 fi
 
-# screenセッションを作成してバックグラウンドで実行
-screen -dmS web_services bash -c "
+# GUIサーバーの起動
+screen -dmS gui_server bash -c "
 cd \"$BASEDIR/gui\" && npm start >> \"$LOGDIR/npm_start_$CURRENT_MONTH.log\" 2>&1
-cd \"$BASEDIR/api\" && uvicorn main:app --reload --port 8001 >> \"$LOGDIR/uvicorn_$CURRENT_MONTH.log\" 2>&1
+"
+
+# APIサーバーの起動
+screen -dmS api_server bash -c "
+cd \"$BASEDIR/api\" && uvicorn main:app --reload --port 8000 >> \"$LOGDIR/uvicorn_$CURRENT_MONTH.log\" 2>&1
 "
