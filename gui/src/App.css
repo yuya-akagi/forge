@@ -8,3 +8,16 @@
   margin-right: auto; /* 右マージンを自動に設定して中央寄せ */
   padding: 20px; /* フォームの内側のスペース（パディング） */
 }
+
+.headerCell {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+  background-color: #f2f2f2;
+}
+
+.cell {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}

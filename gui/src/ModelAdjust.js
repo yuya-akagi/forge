@@ -1,9 +1,11 @@
 import { dividerClasses } from '@mui/material';
 import React, { useState,useEffect } from 'react';
+import './App.css';
 
 function ModelAdjust() {
     const [models, setModels] = useState([]);
     const [selectedModelId, setSelectedModelId] = useState();
+
     useEffect(() => {
         //モデルデータの取得
         const fetchModels = async () => {
@@ -24,20 +26,21 @@ function ModelAdjust() {
 return (
     <div>
         <h1>モデル調整画面</h1>
-        <table style={{ width: "50%", borderCollapse: "collapse" }}>
+        <div style={{ marginLeft: "1%" }}>
+        <table style={{ width: "40%", borderCollapse: "collapse" }}>
                 <thead>
                     <tr>
-                        <th style={styles.headerCell}>ID</th>
-                        <th style={styles.headerCell}>Name</th>
-                        <th style={styles.headerCell}>Dataset</th>
-                        <th style={styles.headerCell}>Epochs</th>
-                        <th style={styles.headerCell}>Create Date</th>
+                        <th className='headerCell'>ID</th>
+                        <th className='headerCell'>Name</th>
+                        <th className='headerCell'>Dataset</th>
+                        <th className='headerCell'>Epochs</th>
+                        <th className='headerCell'>Create Date</th>
                     </tr>
                 </thead>
                 <tbody>
                     {models.map(model => (
                         <tr key={model.id}>
-                            <td style={styles.cell}>
+                            <td className='cell'>
                                 <input
                                   type="radio"
                                   name="model"
@@ -46,30 +49,17 @@ return (
                                   onChange={handleRadioChange}
                                   />
                             </td>
-                            <td style={styles.cell}>{model.name}</td>
-                            <td style={styles.cell}>{model.dataset}</td>
-                            <td style={styles.cell}>{model.epochs}</td>
-                            <td style={styles.cell}>{model.createDate}</td>
+                            <td className='cell'>{model.name}</td>
+                            <td className='cell'>{model.dataset}</td>
+                            <td className='cell'>{model.epochs}</td>
+                            <td className='cell'>{model.createDate}</td>
                         </tr>
                     ))}
                 </tbody>
             </table>
+            </div>
         </div>
     );
 }
-
-const styles = {
-    headerCell: {
-        border: "1px solid #dddddd",
-        textAlign: "left",
-        padding: "8px",
-        backgroundColor: "#f2f2f2"
-    },
-    cell: {
-        border: "1px solid #dddddd",
-        textAlign: "left",
-        padding: "8px"
-    }
-};
 
 export default ModelAdjust;
