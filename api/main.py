@@ -28,11 +28,6 @@ models = [
     {"id": 2, "name": "Model B", "dataset": "Dataset 2", "epochs": 20, "createDate": "2021-02-01"},
 ]
 
-# @app.get("/models", response_model=List[Model])
-# async def get_models():
-#     return models
-
-
 @app.get("/")
 async def read_root():
     return {"message": "Hello, World!"}
