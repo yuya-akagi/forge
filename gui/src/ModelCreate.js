@@ -23,11 +23,11 @@ const ModelCreate = () => {
   const handleSubmit = async (event) => {
     event.preventDefault(); // デフォルトのフォーム送信を防ぐ
     console.log(model); // ここでフォームのデータをコンソールに出力
-  
+
     try {
       // APIの送信処理
       // awaitを使わないと送信処理後に画面が動かなくなる
-      const response = await fetch('http://127.0.0.1:8000/submit-form/', {
+      const response = await fetch('http://localhost:8000/submit-form/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -49,7 +49,7 @@ const ModelCreate = () => {
     <>
       <div className="form-container">
         <form onSubmit={handleSubmit}>
-          <TextField 
+          <TextField
             name="modelName"
             label="モデル名入力"
             value={model.modelName}

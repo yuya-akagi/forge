@@ -9,12 +9,12 @@ function ModelAdjust() {
     useEffect(() => {
         //モデルデータの取得
         const fetchModels = async () => {
-            const response = await fetch('http://127.0.0.1:8000/models');
+            const response = await fetch('http://localhost:8000/models');
             const data = await response.json();
             // setModels関数でmodelsをdataで更新
             setModels(data);
         };
-    
+
         fetchModels();
     }, [])//空の依存配列：コンポーネントの初回レンダリング時に一度だけ実行
     if (models.length === 0) {

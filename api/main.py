@@ -42,11 +42,13 @@ async def handle_form_submit(request: Request):
     model_name = form_data['modelName'] # form_dataからmodelNameの値を取得
 
     result = subprocess.run(
-            ["python", "../cui/main.py", model_name],
+            ["python3", "/app/cui/main.py", model_name],
             capture_output=True,  # 出力をキャプチャする
+            text=True # このオプションはstdoutとstderrを文字列として取得
     )
     
     return {
         "received_modelName": model_name,
-        "script_output": result.stdout.decode('utf-8')
+        "script_output": result.stdout,
+        "script_error": result.stderr
     }
