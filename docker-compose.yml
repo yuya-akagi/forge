@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  gui:
+    build: ./gui
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./gui:/app
+    environment:
+      - NODE_ENV=development
+
+  api:
+    build: ./api
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./api:/app
+      - ./cui:/app/cui
+      - ./job:/job
+    environment:
+      - POETRY_VIRTUALENVS_CREATE=false
+
